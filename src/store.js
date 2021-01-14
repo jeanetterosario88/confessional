@@ -1,8 +1,8 @@
 import {createStore} from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import {reducer} from './reducers'
+import manageSecret from './Reducers/reducers'
 
-const store = createStore(reducer, composeWithDevTools()) 
+const store = createStore(manageSecret, composeWithDevTools()) 
 
 
 export default store 

@@ -1,5 +1,6 @@
 
-export const reducer = (state = {secrets: []}, action) => {
+export default function manageSecret(state = {
+    secrets: []}, action) {
     switch(action.type){
         case 'ADD_SECRET': 
         return {
@@ -8,6 +9,5 @@ export const reducer = (state = {secrets: []}, action) => {
         }//type, payload(input, in this case)
         default: return state
     }
-
-}
+};
 

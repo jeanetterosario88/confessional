@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Index = () => {
+const Secret = () => {
     return (
         <div>
-            <h1>Index</h1>
+            <h1>View</h1>
         </div>
     )
 }
 
-export default Index
+export default Secret

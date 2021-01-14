@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route} from "react-router-dom"
 import Header from "./Components/Header"
-import Index from "./Screens/Index"
-import New from "./Screens/New"
-import View from "./Screens/View"
+import Secrets from "./Screens/Secrets"
+import SecretInput from "./Screens/SecretInput"
+import Secret from "./Screens/Secret"
 
 function App() {
   return (
