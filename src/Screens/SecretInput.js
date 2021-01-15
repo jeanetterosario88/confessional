@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 
 class SecretInput extends Component {
 
   state = {
     title: '', 
-    content: '',
-    id: 1
+    content: ''
   }
 
   handleOnChange(event) {
     this.setState({
-      [event.target.name]: event.target.value, //for multiple inputs: event.target.name gets name attribute from field that you're typing in, and the right side gets the value you typed in
+      title: event.target.value,
+      content: event.target.value
     });
   }
 
   handleOnSubmit(event) {
     event.preventDefault();
-    console.log(this.state)
-    let newid = this.state.id + 1
-    this.props.addSecret(this.state); //we're making addSecret function a prop, using MapDispatchToProps, passing this.state gets sent to reducer 
+    this.props.addSecret(this.state);
     this.setState({
       title: '',
-      content: '',
-      id: newid
-    })
+      conent: ''
+    });
   }
 
   render() {
@@ -33,12 +29,8 @@ class SecretInput extends Component {
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <input
             type="text"
-            name="title"
             value={this.state.title}
-            onChange={(event) => this.handleOnChange(event)} />
-          <input 
             type="text"
-            name="content"
             value={this.state.content}
             onChange={(event) => this.handleOnChange(event)} />
           <input type="submit" />
@@ -48,6 +40,4 @@ class SecretInput extends Component {
   }
 };
 
-const mapDispatchToProps = dispatch => ({ addSecret: secret => dispatch({ type: "ADD_SECRET", secret}) })
-
-export default connect(null, mapDispatchToProps)(SecretInput)
+export default SecretInput;
