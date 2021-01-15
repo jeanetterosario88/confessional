@@ -4,12 +4,16 @@ import Secrets from "./Screens/Secrets"
 import SecretInput from "./Screens/SecretInput"
 import SecretDetail from "./Screens/SecretDetail"
 import { nativeTouchData } from "react-dom/test-utils"
-//import { connect } from 'react-redux'
+//import {getSecrets} from './actions'
+import { connect } from 'react-redux'
+import React, { Component } from 'react'
 
-//import React, { component } from 'react'
 //makes it class-based
 
-//class App extends Component {
+// class App extends Component {
+//   componentDidMount(){
+  // this.props.getSecrets()
+  // }
   //const thing = this.props.things.map((things, i) =>
   //return <li>key={i}> {thing.title}</li>
   //})
@@ -22,8 +26,10 @@ import { nativeTouchData } from "react-dom/test-utils"
   //   </div>
   // )
 
-function App() {
-  return (
+class App extends Component {
+  // componentDidMount(){}
+  render(){
+    return (
     <Router>
       <Header/>
     <div className="App">
@@ -33,15 +39,17 @@ function App() {
     </div>
     </Router>
   );
+  } 
 }
 
 export default App;
 
 //lets you pick and choose what you want from state
+
 //const mapStateToProps = state => {
 //  return{
 //      ?things: state.reducers.reducers ?
 //       loading: state.reducers.loading 
 // }
 //}
-//export default connect()(App);
+//export default connect(mapStateToProps, {getSecrets})(App);
