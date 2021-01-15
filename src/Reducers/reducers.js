@@ -1,5 +1,20 @@
+// export default function manageSecret(state = {
+//     secrets: []}, loading: false, action) {
+//     switch(action.type){
+//         case ("LOADING_SECRET"): 
+//             return {...state, loading: true}
+//         case ("SECRETS_LOADED"):
+//             return {...state, 
+//                     loading: false
+//                     secrets: action.payload;
+//                     }
+//         default:
+//             return state
+//           ...
+
+
 export default function manageSecret(state = {
-    secrets: []}, action) {
+    secrets: []}, loading: false, action) {
     switch(action.type){
         case 'ADD_SECRET': 
         return {
@@ -9,3 +24,5 @@ export default function manageSecret(state = {
         default: return state
     }
 };
+
+//reducers should always return valid state
