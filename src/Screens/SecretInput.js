@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { addSecret } from "../actions/secrets"
 
 class SecretInput extends Component {
 
   state = {
     title: '', 
     content: '',
-    id: 1
   }
 
   handleOnChange(event) {
@@ -17,13 +17,12 @@ class SecretInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    console.log(this.state)
-    let newid = this.state.id + 1
-    this.props.addSecret(this.state); //we're making addSecret function a prop, using MapDispatchToProps, passing this.state gets sent to reducer 
+
+    let secret = this.state
+    this.props.addSecret(secret); //doesn't know better. we're making addSecret function a prop, using MapDispatchToProps, passing this.state gets sent to reducer 
     this.setState({
       title: '',
       content: '',
-      id: newid
     })
   }
 
@@ -50,4 +49,5 @@ class SecretInput extends Component {
 
 const mapDispatchToProps = dispatch => ({ addSecret: secret => dispatch({ type: "ADD_SECRET", secret}) })
 
+//export default connect(null, { addSecret })(SecretInput)
 export default connect(null, mapDispatchToProps)(SecretInput)

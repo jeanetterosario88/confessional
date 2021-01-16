@@ -9,12 +9,15 @@ export default function manageSecret(state = {
                     loading: false,
                     secrets: action.payload
                     }
+        case ("ADDING_SECRET"):
+            return { ...state, loading: true }
         case ("ADD_SECRET"): 
             return {
-                ...state, //manipulate something inside state, spread the state to do something
-                secrets:[...state.secrets, action.secret] // pinpoints which item in object, in this case, secrets... then maniuplating arraay again,  then comma then thing you want to add
+                ...state, loading: false, //manipulate something inside state, spread the state to do something
+                secrets: [...state.secrets, action.payload] //might be action.secret // pinpoints which item in object, in this case, secrets... then maniuplating arraay again,  then comma then thing you want to add
             }//type, payload(secret, in this case), the input
-        default: return state
+        default: 
+            return state
     }
 };
 

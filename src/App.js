@@ -41,6 +41,9 @@ class App extends Component {
   );
   } 
 }
+// /
+//secrets/new
+//secrets/id
 
 export default App;
 

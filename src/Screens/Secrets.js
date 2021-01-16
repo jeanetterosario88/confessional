@@ -2,11 +2,21 @@ import React, {useState, Component} from 'react';
 import Secret from "../Components/Secret";
 // import {useSelector} from 'react-redux';
 import { connect } from 'react-redux'
+import { getSecret } from '../actions/secrets';
 
 
 class Secrets extends Component {
-//ComponentDidMount
-//dispatch action to get request
+ 
+  state = {
+    secrets: [],
+  };
+
+  componentDidMount(){
+    this.setState({
+        secrets: this.props.secrets,
+    })
+  }
+
 render(){
   return (
     <div>
@@ -22,6 +32,8 @@ render(){
   );
   }
 };
+
+
 
 const mapStateToProps = ({ secrets, loading }) => ({ secrets, loading });
 
