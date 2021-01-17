@@ -14,7 +14,7 @@ class Secrets extends Component {
   }
 
 render(){
-  
+  console.log(this.props)
   return (
     <div>
       {/* {this.props.secrets.length ? 'Yup' : 'no'} */}

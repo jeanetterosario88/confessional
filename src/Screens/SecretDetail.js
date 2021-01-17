@@ -19,12 +19,13 @@ class SecretDetail extends Component {
     render() {
         let id = this.props.match.params.id;
         let secret = this.props.secrets.filter(elem => elem.id = id)[0]
-
+        console.log(secret)
         return (
         <div>
-           <h1>{secret.attributes.title}</h1>
-           <p>{secret.attributes.content}</p>
-           <Comment commentContent={secret.relationships.comments.data}/>
+           <h2>{secret.title}</h2>
+           <h3>{secret.content}</h3><br></br>
+           <h4>Comments:</h4>
+           <Comment commentContent={secret.comments}/>
         </div>
     )
 }

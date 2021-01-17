@@ -7,9 +7,8 @@ export const getSecrets = () => {
     return dispatch => {
         dispatch({type: "LOADING_SECRETS"})
         fetch("/secrets")
-
         .then(res => res.json())
-        .then(data => dispatch({type: "SECRETS_LOADED", payload: data.data }))
+        .then(secrets => dispatch({type: "SECRETS_LOADED", payload: secrets }))
     }
 }
 
@@ -25,6 +24,6 @@ export const addSecret = (secret) => {
             }
         })
         .then(res => res.json())
-        .then(secret => dispatch({type: "SECRET_ADDED", payload: secret }))
+        .then(data => dispatch({type: "SECRET_ADDED", payload: data.data }))
     }
 }
