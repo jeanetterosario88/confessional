@@ -4,7 +4,7 @@ import Secrets from "./Screens/Secrets"
 import SecretInput from "./Screens/SecretInput"
 import SecretDetail from "./Screens/SecretDetail"
 import { nativeTouchData } from "react-dom/test-utils"
-//import {getSecrets} from './actions'
+// import {getSecrets} from './actions'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 

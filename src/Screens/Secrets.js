@@ -1,29 +1,28 @@
-import React, {useState, Component} from 'react';
+import React, { Component } from 'react';
 import Secret from "../Components/Secret";
-// import {useSelector} from 'react-redux';
-import { connect } from 'react-redux'
-import { getSecret } from '../actions/secrets';
+import { connect } from 'react-redux';
+import { getSecrets } from '../actions/secrets';
 
 
 class Secrets extends Component {
- 
-  state = {
-    secrets: [],
-  };
+  constructor(props) {
+    super()
+  }
 
   componentDidMount(){
-    this.setState({
-        secrets: this.props.secrets,
-    })
+      this.props.getSecrets()
   }
 
 render(){
+  
   return (
     <div>
+      {/* {this.props.secrets.length ? 'Yup' : 'no'} */}
        {this.props.loading ? <h3>Loading...</h3> : (
+      
         <ul>
-        {this.props.secrets.map((thesecret, index) => (
-        <Secret index={index} item={thesecret} key={index}/>
+        {this.props.secrets.map((thesecret) => (
+        <Secret item={thesecret} key={thesecret.id}/>
         )
         )}
       </ul>
@@ -36,5 +35,8 @@ render(){
 
 
 const mapStateToProps = ({ secrets, loading }) => ({ secrets, loading });
+const mapDispatchToProps = dispatch => ({
+  getSecrets: () => dispatch(getSecrets())
+})
 
-export default connect(mapStateToProps)(Secrets)
+export default connect(mapStateToProps, mapDispatchToProps)(Secrets)

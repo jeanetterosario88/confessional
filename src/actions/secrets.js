@@ -3,40 +3,18 @@
 //with connect, you get a dispatch function automicatlly, that's w you send actions to recducers
 
 
-// Asynchronous action creators
-// export const login = credentials => {
-//     return dispatch => {
-//        return fetch("http://localhost:3000/api/v1/login",
-//            { credentials: "include",
-//              method: "POST",
-//              headers: { "Content-Type": "application/json" },
-//              body: JSON.stringify(credentials)
-//            })
-       
-//      .then(r => r.json())
-//      .then(user => {
-//         if (user.error) {
-//            alert(user.error)
-//         } else {
-//           dispatch(setCurrentUser(user))
-//           dispatch(getMyToys(user))
-//         }
-//      })
-//    }
-//  }
-
-
 export const getSecrets = () => {
-    dispatch => {
+    return dispatch => {
         dispatch({type: "LOADING_SECRETS"})
         fetch("/secrets")
+
         .then(res => res.json())
-        .then(secrets => dispatch({type: "SECRETS_LOADED", payload: secrets }))
+        .then(data => dispatch({type: "SECRETS_LOADED", payload: data.data }))
     }
 }
 
 export const addSecret = (secret) => {
-    dispatch => {
+    return dispatch => {
         dispatch({type: "ADD_SECRET"})
         fetch("/secrets", {
             method: "POST",
