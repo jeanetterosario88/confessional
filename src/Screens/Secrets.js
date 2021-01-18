@@ -39,4 +39,7 @@ const mapDispatchToProps = dispatch => ({
   getSecrets: () => dispatch(getSecrets())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Secrets)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Secrets)

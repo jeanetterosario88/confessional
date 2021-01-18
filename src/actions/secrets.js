@@ -13,8 +13,9 @@ export const getSecrets = () => {
 }
 
 export const addSecret = (secret) => {
+    console.log(secret);
     return dispatch => {
-        dispatch({type: "ADD_SECRET"})
+        dispatch({type: "ADDING_SECRET"})
         fetch("/secrets", {
             method: "POST",
             body: JSON.stringify(secret),
@@ -24,6 +25,12 @@ export const addSecret = (secret) => {
             }
         })
         .then(res => res.json())
-        .then(data => dispatch({type: "SECRET_ADDED", payload: data.data }))
+        .then(data => {
+            dispatch( {type: "SECRET_ADDED", payload: data})
+            return data;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+          });
     }
 }

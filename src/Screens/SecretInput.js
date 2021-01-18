@@ -3,11 +3,16 @@ import { connect } from 'react-redux';
 import { addSecret } from "../actions/secrets"
 
 class SecretInput extends Component {
-
-  state = {
-    title: '', 
-    content: '',
+  constructor(props) {
+    super()
+    this.state = {
+      title: '', 
+      content: '',
+      errors: []
+    }
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
+
 
   handleOnChange(event) {
     this.setState({
@@ -17,18 +22,42 @@ class SecretInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-
-    let secret = this.state
-    this.props.addSecret(secret); //doesn't know better. we're making addSecret function a prop, using MapDispatchToProps, passing this.state gets sent to reducer 
-    this.setState({
-      title: '',
-      content: '',
-    })
+    //form validation
+    if (this.state.title.length < 6 || this.state.title.length > 40) {
+      this.setState({
+        errors: [...this.state.errors, "Title must be between 6 and 40 characters!"]
+      })
+    } 
+    else if (400 < this.state.content.length || this.state.content.length < 12) {
+      this.setState({
+        errors: [...this.state.errors, "Content must be between 12 and 400 characters!"]
+      })      
+    }
+    else { 
+      // (this.state.errors.length === 0) 
+      let secret = this.state;
+      this.props.onAddSecret(secret); //doesn't know better. we're making addSecret function a prop, using MapDispatchToProps, passing this.state gets sent to reducer 
+      this.setState({
+        title: '',
+        content: '',
+        errors: []
+      })
+      // need to do: put in evaluation of the server response to see if there are new errors
+      this.handleSuccessfulPost()// pass in the id of the payload that is returned from the successful server call
+    }
   }
 
+  handleSuccessfulPost(secretID){
+    // const secretID = data.id;
+    // this.props.history.push(`/secret/${secretID}`)
+    this.props.history.push(`/secrets`)
+  }
+  
   render() {
+    const errors = this.state.errors.map((error, i) => <h3 key={i}>{error}</h3>);
     return (
       <div>
+        {this.state.errors.length > 0 && <div className="errorContainer">{errors}</div> }
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <input
             type="text"
@@ -46,8 +75,20 @@ class SecretInput extends Component {
     );
   }
 };
+const mapStateToProps = state => ({
+  secrets: state.secrets
+})
 
-const mapDispatchToProps = dispatch => ({ addSecret: secret => dispatch({ type: "ADD_SECRET", secret}) })
+const mapDispatchToProps = (dispatch, secret) => {
+  return {
+    onAddSecret: (secret) => dispatch(addSecret(secret))
+  }
+}
+
+// dispatch => ({ addSecret: secret => dispatch({ type: "ADD_SECRET", secret}) })
 
 //export default connect(null, { addSecret })(SecretInput)
-export default connect(null, mapDispatchToProps)(SecretInput)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SecretInput)
