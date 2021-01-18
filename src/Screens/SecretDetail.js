@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Comment from '../Components/Comment'
 import { getSecret } from "../actions/secrets"
+import Likes from '../Components/Likes';
 
  //using match to get params from url
  //filter secrets array to get that Id, display content
@@ -22,29 +23,26 @@ class SecretDetail extends Component {
         //     secret: secret
         // })
     }
-    // const [localsecret, setLocalsecret] = useState({})
-    // useEffect(()=>{
-        // console.log(props.match.params.id)
-        // let index = Number(props.match.params.id)
-        // alert(props.secrets[index])
-        // setLocalsecret(props.secrets[index])
+
     render() {
-        if (this.props.secret){
-            return (
         
+        console.log('In Secret detail', this.props)
+        if (!this.props.secret.id){
+            return (<h3>Loading...</h3>)
+         }
+            return(
                 <div>
                    <h2>{this.props.secret.title}</h2>
                    <h3>{this.props.secret.content}</h3><br></br>
+                   <Likes secret={this.props.secret}/>
                    <h4>Comments:</h4>
-                   {/* <Comment commentContent={this.props.secret.comments}/> */}
+                   <Comment commentContent={this.props.secret.comments}/>
+
                 </div>
             )
-        } else {
-            return <h3>Loading...</h3>
-        }
-        
+        }      
 }
-}
+
 //after p, inside div, add a comment input form
 //then show commentz
 const mapStateToProps = ({ secrets, secret }) => ({ secrets, secret })

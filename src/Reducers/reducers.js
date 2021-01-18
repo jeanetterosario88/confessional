@@ -25,6 +25,7 @@ export default function manageSecret(state = {
                 secrets: [...state.secrets, action.payload],
                 secret: action.payload //might be action.secret // pinpoints which item in object, in this case, secrets... then maniuplating arraay again,  then comma then thing you want to add
             }//type, payload(secret, in this case), the input
+        
         default: 
             return state
     }

@@ -5,6 +5,8 @@ import { getSecrets } from '../actions/secrets';
 
 
 class Secrets extends Component {
+  //might be able to take out constructor and super, j
+  //ust check that you still have access to props
   constructor(props) {
     super()
   }
@@ -14,7 +16,7 @@ class Secrets extends Component {
   }
 
 render(){
-  console.log(this.props)
+  console.log('Secrets Main', this.props)
   return (
     <div>
       {/* {this.props.secrets.length ? 'Yup' : 'no'} */}

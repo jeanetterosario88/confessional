@@ -21,11 +21,31 @@ export const getSecrets = () => {
 }
 
 export const addSecret = (secret) => {
-    console.log(secret);
     return dispatch => {
         dispatch({type: "ADDING_SECRET"})
         fetch("/secrets", {
             method: "POST",
+            body: JSON.stringify(secret),
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            dispatch( {type: "SECRET_ADDED", payload: data})
+            return data;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+          });
+    }
+}
+
+export const addLike = (secret) => {
+    return dispatch => {
+        fetch(`/secrets/${secret.id}`, {
+            method: "PUT",
             body: JSON.stringify(secret),
             headers: {
                 'Content-Type': 'application/json',

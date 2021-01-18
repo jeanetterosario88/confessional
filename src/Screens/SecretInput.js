@@ -13,6 +13,7 @@ class SecretInput extends Component {
       // newSecret: {},
       redirect: false
     }
+    this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
