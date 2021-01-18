@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { addSecret } from "../actions/secrets"
 
 class SecretInput extends Component {
@@ -8,7 +9,9 @@ class SecretInput extends Component {
     this.state = {
       title: '', 
       content: '',
-      errors: []
+      errors: [],
+      // newSecret: {},
+      redirect: false
     }
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
@@ -40,20 +43,25 @@ class SecretInput extends Component {
       this.setState({
         title: '',
         content: '',
-        errors: []
+        errors: [],
+        // newSecret: this.props.onAddSecret(secret)
+        redirect: true
       })
       // need to do: put in evaluation of the server response to see if there are new errors
-      this.handleSuccessfulPost()// pass in the id of the payload that is returned from the successful server call
+      //this.handleSuccessfulPost()// pass in the id of the payload that is returned from the successful server call
+
     }
   }
+  // handleSuccessfulPost(){
+  //   this.props.history.push(`/secret/${this.props.secret.id}`)
+  // }
 
-  handleSuccessfulPost(secretID){
-    // const secretID = data.id;
-    // this.props.history.push(`/secret/${secretID}`)
-    this.props.history.push(`/secrets`)
-  }
+
   
   render() {
+    if (this.state.redirect){
+      return <Redirect to="/" />
+    }
     const errors = this.state.errors.map((error, i) => <h3 key={i}>{error}</h3>);
     return (
       <div>
@@ -76,7 +84,8 @@ class SecretInput extends Component {
   }
 };
 const mapStateToProps = state => ({
-  secrets: state.secrets
+  secrets: state.secrets,
+  secret: state.secret
 })
 
 const mapDispatchToProps = (dispatch, secret) => {

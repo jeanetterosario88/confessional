@@ -2,6 +2,14 @@
 //dispatch takes in atction send to store, to reducer
 //with connect, you get a dispatch function automicatlly, that's w you send actions to recducers
 
+export const getSecret = (id) => {
+    return dispatch => {
+        dispatch({type: "LOADING_SECRET"})
+        fetch(`/secrets/${id}`)
+        .then(res => res.json())
+        .then(secret => dispatch({type: "SECRET_LOADED", payload: secret }))
+    }
+}
 
 export const getSecrets = () => {
     return dispatch => {
