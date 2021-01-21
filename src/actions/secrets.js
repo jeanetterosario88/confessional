@@ -62,3 +62,23 @@ export const addLike = (secret) => {
           });
     }
 }
+
+export const addComment = (newComment) => {
+    return dispatch => {
+        fetch(`/secrets/${newComment.secret_id}/comments`, {
+            method: "POST",
+            body: JSON.stringify(newComment),
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(() => {
+            dispatch(getSecret(newComment.secret_id))
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+          });
+    }
+}

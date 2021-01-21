@@ -16,19 +16,25 @@ class Secrets extends Component {
   }
 
 render(){
-  console.log('Secrets Main', this.props)
+  if(this.props.loading) return  (<h3>Loading...</h3>) 
+
+  
+  const sortedSecretList = this.props.secrets.sort((a,b) => {
+    if (a.likes > b.likes) {
+        return -1
+    } else {
+        return 1
+    }
+  })
+
   return (
     <div>
-      {/* {this.props.secrets.length ? 'Yup' : 'no'} */}
-       {this.props.loading ? <h3>Loading...</h3> : (
-      
         <ul>
-        {this.props.secrets.map((thesecret) => (
-        <Secret item={thesecret} key={thesecret.id}/>
+        {sortedSecretList.map((thesecret) => (
+        <Secret key={thesecret.id} item={thesecret}/>
         )
         )}
       </ul>
-       ) }
     </div>
   );
   }

@@ -9,12 +9,16 @@ import {addLike} from '../actions/secrets'
 class Likes extends Component {
     constructor(props){
         super()
+        this.state = {
+            show: true
+        }
         this.handleLike = this.handleLike.bind(this)
     }
 
     handleLike(){
         let secret = this.props.secret
         this.props.onAddLike(secret)
+        this.setState({show: false})
     }
 
     render(){
@@ -28,15 +32,20 @@ class Likes extends Component {
                         ></i>
                 </div>
             )}
-        return (
-        <div>
-            <i 
-                className="fas fa-heartbeat"
-                onClick={() => this.handleLike(secret)}
-                    ></i>
-            <p> {secret.likes}</p>
-        </div>
+       else if (this.state.show) { 
+           return (
+            <div>
+                <i 
+                    className="fas fa-heartbeat"
+                    onClick={() => this.handleLike(secret)}
+                        ></i>
+                <p> {secret.likes}</p>
+            </div>
+           )}
+        else return  (
+                <p> </p>
         )}
+
 }
 
 

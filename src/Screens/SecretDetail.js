@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Comment from '../Components/Comment'
+import Comments from '../Components/Comments'
 import { getSecret } from "../actions/secrets"
 import Likes from '../Components/Likes';
 
@@ -36,7 +36,7 @@ class SecretDetail extends Component {
                    <h3>{this.props.secret.content}</h3><br></br>
                    <Likes secret={this.props.secret}/>
                    <h4>Comments:</h4>
-                   <Comment commentContent={this.props.secret.comments}/>
+                   <Comments commentContent={this.props.secret.comments} theSecret={this.props.secret}/>
 
                 </div>
             )
