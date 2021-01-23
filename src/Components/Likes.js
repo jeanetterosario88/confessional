@@ -30,16 +30,16 @@ class Likes extends Component {
                         className="fas fa-heartbeat"
                         onClick={() => this.handleLike(secret)}
                         ></i>
+                        {secret.likes}
                 </div>
             )}
        else if (this.state.show) { 
            return (
             <div>
                 <i 
-                    className="fas fa-heartbeat"
-                    onClick={() => this.handleLike(secret)}
-                        ></i>
-                <p> {secret.likes}</p>
+                    className="fas fa-heartbeat" 
+                    onClick={() => this.handleLike(secret)}></i>
+                    {secret.likes}
             </div>
            )}
         else return  (

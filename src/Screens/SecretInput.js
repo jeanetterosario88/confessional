@@ -11,7 +11,6 @@ class SecretInput extends Component {
       content: '',
       errors: [],
       // newSecret: {},
-      redirect: false
     }
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
@@ -46,7 +45,6 @@ class SecretInput extends Component {
         content: '',
         errors: [],
         // newSecret: this.props.onAddSecret(secret)
-        redirect: true
       })
       // need to do: put in evaluation of the server response to see if there are new errors
       //this.handleSuccessfulPost()// pass in the id of the payload that is returned from the successful server call
@@ -60,19 +58,19 @@ class SecretInput extends Component {
 
   
   render() {
-    if (this.state.redirect){
-      return <Redirect to="/" />
-    }
     const errors = this.state.errors.map((error, i) => <h3 key={i}>{error}</h3>);
     return (
-      <div>
+      <div className = "form">
+        <h2>Add A Secret:</h2>
         {this.state.errors.length > 0 && <div className="errorContainer">{errors}</div> }
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
+          <p>Title:</p>
           <input
             type="text"
             name="title"
             value={this.state.title}
             onChange={(event) => this.handleOnChange(event)} />
+          <p>Content:</p>
           <input 
             type="text"
             name="content"

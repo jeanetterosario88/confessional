@@ -34,7 +34,10 @@ export const addSecret = (secret) => {
         .then(res => res.json())
         .then(data => {
             dispatch( {type: "SECRET_ADDED", payload: data})
-            return data;
+            
+        })
+        .then(() => {
+            dispatch(getSecrets())
         })
         .catch((error) => {
             console.error('Error:', error);

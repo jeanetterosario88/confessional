@@ -35,7 +35,7 @@ class SecretDetail extends Component {
                    <h2>{this.props.secret.title}</h2>
                    <h3>{this.props.secret.content}</h3><br></br>
                    <Likes secret={this.props.secret}/>
-                   <h4>Comments:</h4>
+                   <h4>Add A Comment:</h4>
                    <Comments commentContent={this.props.secret.comments} theSecret={this.props.secret}/>
 
                 </div>

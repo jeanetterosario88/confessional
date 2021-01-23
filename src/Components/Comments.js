@@ -3,7 +3,7 @@ import CommentInput from './CommentInput'
 
 const Comments = (props) => {
     console.log(props.commentContent)
-    if(!props.commentContent.length) return (<p>There are no comments for this secret</p>)
+
     return(
         <div>
             <CommentInput  theSecret={props.theSecret} />

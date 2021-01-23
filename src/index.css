@@ -16,6 +16,10 @@
   width: 200px;
 }
 
+.form {
+  margin: 20px;
+}
+
 a {
   text-decoration: none ;
   color: red;
