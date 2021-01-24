@@ -43,7 +43,10 @@ class Likes extends Component {
             </div>
            )}
         else return  (
-                <p> </p>
+            <div>
+                <p> {secret.likes} </p>
+            </div>
+                
         )}
 
 }

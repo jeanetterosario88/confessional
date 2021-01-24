@@ -39,7 +39,7 @@ class SecretInput extends Component {
     else { 
       // (this.state.errors.length === 0) 
       let secret = this.state;
-      this.props.onAddSecret(secret); //doesn't know better. we're making addSecret function a prop, using MapDispatchToProps, passing this.state gets sent to reducer 
+      this.props.onAddSecret(secret); // we're making addSecret function a prop, using MapDispatchToProps, passing this.state gets sent to reducer 
       this.setState({
         title: '',
         content: '',
@@ -47,13 +47,13 @@ class SecretInput extends Component {
         // newSecret: this.props.onAddSecret(secret)
       })
       // need to do: put in evaluation of the server response to see if there are new errors
-      //this.handleSuccessfulPost()// pass in the id of the payload that is returned from the successful server call
+      this.handleSuccessfulPost()// pass in the id of the payload that is returned from the successful server call
 
     }
   }
-  // handleSuccessfulPost(){
-  //   this.props.history.push(`/secret/${this.props.secret.id}`)
-  // }
+  handleSuccessfulPost(){
+    this.props.history.push(`/`)
+  }
 
 
   
