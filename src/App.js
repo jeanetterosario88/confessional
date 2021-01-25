@@ -3,8 +3,8 @@ import Header from "./Components/Header"
 import Secrets from "./Screens/Secrets"
 import SecretInput from "./Screens/SecretInput"
 import SecretDetail from "./Screens/SecretDetail"
-import { nativeTouchData } from "react-dom/test-utils"
-import { connect } from 'react-redux'
+// import { nativeTouchData } from "react-dom/test-utils"
+// import { connect } from 'react-redux'
 import React, { Component } from 'react'
 
 
