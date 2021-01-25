@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { addSecret } from "../actions/secrets";
 import { Button } from 'react-bootstrap'
 
@@ -45,10 +44,9 @@ class SecretInput extends Component {
         title: '',
         content: '',
         errors: [],
-        // newSecret: this.props.onAddSecret(secret)
       })
-      // need to do: put in evaluation of the server response to see if there are new errors
-      this.handleSuccessfulPost()// pass in the id of the payload that is returned from the successful server call
+      // if pushing to secret*: put in evaluation of the server response to see if there are new errors// pass in the id of the payload that is returned from the successful server call
+      this.handleSuccessfulPost()
 
     }
   }

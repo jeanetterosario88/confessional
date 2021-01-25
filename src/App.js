@@ -4,11 +4,28 @@ import Secrets from "./Screens/Secrets"
 import SecretInput from "./Screens/SecretInput"
 import SecretDetail from "./Screens/SecretDetail"
 import { nativeTouchData } from "react-dom/test-utils"
-// import {getSecrets} from './actions'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 
-//makes it class-based
+
+class App extends Component {
+  render(){
+    return (
+    <Router>
+      <Header/>
+    <div className="App">
+      <Route path="/" component={Secrets} exact/>
+      <Route path="/secret/:id" component={SecretDetail} />
+      <Route path="/new" component={SecretInput} />
+    </div>
+    </Router>
+  );
+  } 
+}
+
+export default App;
+
+
 
 // class App extends Component {
 //   componentDidMount(){
@@ -25,29 +42,6 @@ import React, { Component } from 'react'
   //     </header>
   //   </div>
   // )
-
-class App extends Component {
-  // componentDidMount(){}
-  render(){
-    return (
-    <Router>
-      <Header/>
-    <div className="App">
-      <Route path="/" component={Secrets} exact/>
-      <Route path="/secret/:id" component={SecretDetail} />
-      <Route path="/new" component={SecretInput} />
-    </div>
-    </Router>
-  );
-  } 
-}
-// /
-//secrets/new
-//secrets/id
-
-export default App;
-
-//lets you pick and choose what you want from state
 
 //const mapStateToProps = state => {
 //  return{

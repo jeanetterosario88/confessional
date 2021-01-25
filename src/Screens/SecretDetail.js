@@ -6,15 +6,15 @@ import Likes from '../Components/Likes';
 
  //using match to get params from url
  //filter secrets array to get that Id, display content
-
  //get request to get item
  //can put in localstate variable
+ 
 class SecretDetail extends Component {
 
     componentDidMount(){
         let paramID = this.props.match.params.id;
-        //get the secret from the server:
-        this.props.getSecret(paramID);
+ 
+        this.props.getSecret(paramID); //get the secret from the server:
 
         // let secret = this.props.secrets.filter( elem => elem.id === paramID)
         // console.log("hardcoded",this.props.secrets[15]);
@@ -43,8 +43,6 @@ class SecretDetail extends Component {
         }      
 }
 
-//after p, inside div, add a comment input form
-//then show commentz
 const mapStateToProps = ({ secrets, secret }) => ({ secrets, secret })
 const mapDispatchToProps = (dispatch, id) => ({
   getSecret: (id) => dispatch(getSecret(id))

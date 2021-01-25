@@ -7,7 +7,7 @@ import {Button} from 'react-bootstrap'
 
 class Secrets extends Component {
   //might be able to take out constructor and super, j
-  //ust check that you still have access to props
+  //just check that you still have access to props
   constructor(props) {
     super()
   }

@@ -9,7 +9,7 @@ class CommentInput extends Component {
         content: '',
         errors: ''
       }
-    // this.handleOnChange = this.handleOnChange.bind(this);
+
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.handleOnComment = this.handleOnComment.bind(this);
     }
@@ -34,7 +34,7 @@ class CommentInput extends Component {
               content: this.state.content,
               secret_id: this.props.theSecret.id
           };
-          this.props.onAddComment(newComment); //doesn't know better. we're making addSecret function a prop, using MapDispatchToProps, passing this.state gets sent to reducer 
+          this.props.onAddComment(newComment);
           this.setState({
             content: '',
             errors: '',
