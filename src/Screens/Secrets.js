@@ -36,7 +36,6 @@ render(){
         )
         )}
       </ul>
-      <Button variant="success">Testing </Button>
     </div>
   );
   }

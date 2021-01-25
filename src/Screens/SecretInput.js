@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addSecret } from "../actions/secrets";
-import { Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 
 class SecretInput extends Component {
   constructor(props) {
@@ -75,6 +75,7 @@ class SecretInput extends Component {
             name="content"
             value={this.state.content}
             onChange={(event) => this.handleOnChange(event)} />
+            <p> </p>
           <Button type="submit" variant="dark">Submit</Button>
         </form>
       </div>

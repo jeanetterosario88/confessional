@@ -13,7 +13,7 @@ class App extends Component {
     return (
     <Router>
       <Header/>
-    <div className="App">
+    <div className="App" >
       <Route path="/" component={Secrets} exact/>
       <Route path="/secret/:id" component={SecretDetail} />
       <Route path="/new" component={SecretInput} />

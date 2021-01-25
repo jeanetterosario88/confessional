@@ -5,7 +5,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {addLike} from '../actions/secrets'
 
-
 class Likes extends Component {
     constructor(props){
         super()
@@ -25,9 +24,8 @@ class Likes extends Component {
         let secret = this.props.secret
         if (!secret.likes) {
             return (
-                <div>
-                    <i 
-                        className="fas fa-heartbeat"
+                    <div>
+                        <i className="fas fa-heartbeat"
                         onClick={() => this.handleLike(secret)}
                         ></i>
                         {secret.likes}

@@ -28,10 +28,14 @@ class SecretDetail extends Component {
         
         console.log('In Secret detail', this.props)
         if (!this.props.secret.id){
-            return (<h3>Loading...</h3>)
+            return( 
+                <div className = "loading">
+                <h3>>Loading... </h3>
+                </div>
+            )
          }
             return(
-                <div>
+                <div className = "detail">
                    <h2>{this.props.secret.title}</h2>
                    <h3>{this.props.secret.content}</h3><br></br>
                    <Likes secret={this.props.secret}/>

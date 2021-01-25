@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addComment } from "../actions/secrets"
+import { addComment } from "../actions/secrets";
+import { Button } from 'react-bootstrap'
 
 class CommentInput extends Component {
   constructor(props) {
@@ -53,7 +54,8 @@ class CommentInput extends Component {
                 name="content"
                 value={this.state.content}
                 onChange={(event) => this.handleOnComment(event)} />
-              <input type="submit" />
+                <p> </p>
+              <Button type="submit" variant="dark">Submit</Button>
             </form>
           </div>
         );
