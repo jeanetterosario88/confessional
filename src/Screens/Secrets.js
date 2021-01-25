@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Secret from "../Components/Secret";
 import { connect } from 'react-redux';
 import { getSecrets } from '../actions/secrets';
+import {Button} from 'react-bootstrap'
 
 
 class Secrets extends Component {
@@ -35,6 +36,7 @@ render(){
         )
         )}
       </ul>
+      <Button variant="success">Testing </Button>
     </div>
   );
   }
