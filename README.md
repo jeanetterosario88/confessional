@@ -3,7 +3,7 @@
 
 ## INTRODUCTION
 
-This project builds the React/Redux frontend for the Confessional: a place where anyone can create and read secrets. They can also like and comment on each secrets as well.
+This project builds the React/Redux frontend for the Confessional: a place where anyone can create and read secrets. They can also like and comment on other's secrets.
 
 ## OVERVIEW
 
@@ -50,6 +50,3 @@ Finally, make sure the backend local server is also running (see Confessional-Ba
 ## CONTRIBUTING
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jeanetterosario88/confessional.git Contributors are expected to adhere to the Contributor Covenant code of conduct.
-
-
-# confessional
