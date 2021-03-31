@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import CommentInput from './CommentInput'
 
 const Comments = (props) => {
-    console.log(props.commentContent)
 
     return(
         <div>

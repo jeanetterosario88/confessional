@@ -1,6 +1,6 @@
 //action object creator function
-//dispatch takes in atction send to store, to reducer
-//with connect, you get a dispatch function automicatlly, that's w you send actions to recducers
+//dispatch takes in action send to store, to reducer
+//with connect, you get a dispatch function automicatlly, that's how you send actions to reducers
 
 export const getSecret = (id) => {
     return dispatch => {

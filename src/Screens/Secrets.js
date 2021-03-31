@@ -10,17 +10,32 @@ class Secrets extends Component {
   //just check that you still have access to props
   constructor(props) {
     super()
+    this.state = {
+      sorted: false
+    }
+
   }
 
   componentDidMount(){
       this.props.getSecrets()
   }
 
-render(){
+  handleSort() {
+    if (!this.state.sorted) {
+    this.setState({
+      sorted: true
+    })}
+    else {
+    this.setState({
+      sorted: false
+    })}
+  }
+
+  render(){
   if(this.props.loading) return  (<h3>Loading...</h3>) 
 
-  
-  const sortedSecretList = this.props.secrets.sort((a,b) => {
+
+  let secretList = [...this.props.secrets].sort((a,b) => {
     if (a.likes > b.likes) {
         return -1
     } else {
@@ -28,13 +43,18 @@ render(){
     }
   })
 
+  if (!this.state.sorted){
+    secretList = this.props.secrets
+  } 
+
   return (
     <div>
         <ul>
-        {sortedSecretList.map((thesecret) => (
+        {secretList.map((thesecret) => (
         <Secret key={thesecret.id} item={thesecret}/>
         )
         )}
+        <button onClick={(event) => this.handleSort(event)}> Sort </button>
       </ul>
     </div>
   );

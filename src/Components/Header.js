@@ -21,7 +21,8 @@ const Header = () => {
 
 export default Header
 
- //     <header className="header">
+    // original, w/o Bootstrap 
+    //     <header className="header">
     //         <h1>Confessional</h1>
     //         <div className="header__links"><Link to='/new'>Add A New Secret</Link>     
     //         <Link to='/'>Home</Link></div>
