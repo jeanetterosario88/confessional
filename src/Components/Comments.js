@@ -11,7 +11,7 @@ const Comments = (props) => {
             <hr/>
             <b>Comments:</b>
             {props.commentContent.map(elem =>
-                <ListGroup.Item variant="secondary" key={elem.id}> {elem.content} </ListGroup.Item>
+                <ListGroup.Item key={elem.id}> {elem.content} </ListGroup.Item>
             )}
             </ListGroup>
         </div>

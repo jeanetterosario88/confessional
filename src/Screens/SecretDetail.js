@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Comments from '../Components/Comments'
 import { getSecret } from "../actions/secrets"
 import Likes from '../Components/Likes';
+import { Badge } from 'react-bootstrap'
+
 
  //using match to get params from url
  //filter secrets array to get that Id, display content
@@ -30,18 +32,16 @@ class SecretDetail extends Component {
         if (!this.props.secret.id){
             return( 
                 <div className = "loading">
-                <h3>>Loading... </h3>
+                <h3>Loading... </h3>
                 </div>
             )
          }
             return(
                 <div className = "detail">
                    <h2>{this.props.secret.title}</h2>
-                   <h3>{this.props.secret.content}</h3><br></br>
-                   <Likes secret={this.props.secret}/>
-                   <h4>Add A Comment:</h4>
+                   <h3>{this.props.secret.content} <Badge variant="secondary"> <Likes secret={this.props.secret}/></Badge> </h3>
+                   <hr></hr>
                    <Comments commentContent={this.props.secret.comments} theSecret={this.props.secret}/>
-
                 </div>
             )
         }      

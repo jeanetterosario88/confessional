@@ -49,7 +49,7 @@ class CommentInput extends Component {
             {this.state.errors.length > 0 && <div className="errorContainer">{this.state.errors}</div> }
             <Form onSubmit={(event) => this.handleOnSubmit(event)}>
             <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Add A Comment:</Form.Label>
+              <Form.Label><b>Add A Comment:</b></Form.Label>
               <Form.Control as="textarea" type="text" name="content"  value={this.state.content}
                 onChange={(event) => this.handleOnComment(event)} rows={3} />
               <Button type="submit" variant="dark">Submit</Button>
