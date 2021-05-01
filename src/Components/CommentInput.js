@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addComment } from "../actions/secrets";
-import { Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 
 class CommentInput extends Component {
   constructor(props) {
@@ -47,16 +47,14 @@ class CommentInput extends Component {
         return (
           <div>
             {this.state.errors.length > 0 && <div className="errorContainer">{this.state.errors}</div> }
-           
-            <form onSubmit={(event) => this.handleOnSubmit(event)}>
-              <input
-                type="text"
-                name="content"
-                value={this.state.content}
-                onChange={(event) => this.handleOnComment(event)} />
-                <p> </p>
+            <Form onSubmit={(event) => this.handleOnSubmit(event)}>
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Add A Comment:</Form.Label>
+              <Form.Control as="textarea" type="text" name="content"  value={this.state.content}
+                onChange={(event) => this.handleOnComment(event)} rows={3} />
               <Button type="submit" variant="dark">Submit</Button>
-            </form>
+            </Form.Group>
+            </Form>
           </div>
         );
       }

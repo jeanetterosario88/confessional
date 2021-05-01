@@ -50,11 +50,11 @@ class Secrets extends Component {
   return (
     <div>
         <ul>
+        <button onClick={(event) => this.handleSort(event)}> Sort By Likes </button>
         {secretList.map((thesecret) => (
         <Secret key={thesecret.id} item={thesecret}/>
         )
         )}
-        <button onClick={(event) => this.handleSort(event)}> Sort </button>
       </ul>
     </div>
   );
