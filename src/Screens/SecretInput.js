@@ -54,31 +54,23 @@ class SecretInput extends Component {
     this.props.history.push(`/`)
   }
 
-
   
   render() {
     const errors = this.state.errors.map((error, i) => <h3 key={i}>{error}</h3>);
     return (
-      <div className = "form">
-        <h2>Add A Secret:</h2>
-        {this.state.errors.length > 0 && <div className="errorContainer">{errors}</div> }
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <p>Title:</p>
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            onChange={(event) => this.handleOnChange(event)} />
-          <p>Content:</p>
-          <input 
-            type="text"
-            name="content"
-            value={this.state.content}
-            onChange={(event) => this.handleOnChange(event)} />
-            <p> </p>
-          <Button type="submit" variant="dark">Submit</Button>
-        </form>
-      </div>
+      <div>
+        <h3>{this.state.errors.length > 0 && <div className="errorContainer">{errors}</div>} </h3>
+            <Form onSubmit={(event) => this.handleOnSubmit(event)}>
+            <Form.Group controlId="exampleForm.ControlTextarea2">
+            <Form.Label><h2>Add A Secret:</h2></Form.Label>
+            <h3>Title: <Form.Control type="text" name="title"  value={this.state.title}    
+              onChange={(event) => this.handleOnChange(event)} /></h3>
+            <h3>Content: <Form.Control as="textarea" type="text" name="content"  value={this.state.title}    
+              onChange={(event) => this.handleOnChange(event)} rows={3} /></h3>
+            <Button type="submit" variant="dark">Submit</Button>
+        </Form.Group>
+        </Form>
+     </div>
     );
   }
 };
