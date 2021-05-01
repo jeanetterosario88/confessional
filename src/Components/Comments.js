@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import CommentInput from './CommentInput'
+import { ListGroup } from 'react-bootstrap'
 
 const Comments = (props) => {
 
     return(
         <div>
             <CommentInput  theSecret={props.theSecret} />
+            <ListGroup>
+            <hr/>
+            <b>Comments:</b>
             {props.commentContent.map(elem =>
-                <ul key={elem.id}>
-                    <li>{elem.content}</li>
-                </ul>
+                <ListGroup.Item variant="secondary" key={elem.id}> {elem.content} </ListGroup.Item>
             )}
+            </ListGroup>
         </div>
     )
 }
