@@ -38,8 +38,8 @@ class SecretDetail extends Component {
          }
             return(
                 <div className = "detail">
-                   <h2>{this.props.secret.title}</h2>
-                   <h3>{this.props.secret.content} <Badge variant="secondary"> <Likes secret={this.props.secret}/></Badge> </h3>
+                   <h2>{this.props.secret.title} <Badge variant="secondary"> <Likes secret={this.props.secret}/></Badge></h2>
+                   <h3>{this.props.secret.content} </h3>
                    <hr></hr>
                    <Comments commentContent={this.props.secret.comments} theSecret={this.props.secret}/>
                 </div>

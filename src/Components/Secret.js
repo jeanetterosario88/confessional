@@ -7,7 +7,7 @@ const Secret = (props) => {
     return (
         <li>
             <Link to={`/secret/${props.item.id}`}> {props.item.title} </Link> 
-            {props.item.likes} <i className="fas fa-heartbeat"></i>
+            {props.item.likes} <i className="fa fa-heartbeat"></i>
             
         </li>
         )}
