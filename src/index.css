@@ -24,6 +24,9 @@ i {
   color: red
 }
 
+.likeNo {
+  color: white;
+}
 .header {
   margin: 20px;
   display: flex;

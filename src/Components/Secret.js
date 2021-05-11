@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom'
 
 const Secret = (props) => {
     return (
-        <li>
+        <li className = "likeNo">
             <Link to={`/secret/${props.item.id}`}> {props.item.title} </Link> 
-            {props.item.likes} <i className="fa fa-heartbeat"></i>
+             <i className="fa fa-heartbeat"></i> {props.item.likes}
             
         </li>
         )}
